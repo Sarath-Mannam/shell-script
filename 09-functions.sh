@@ -14,15 +14,14 @@ N="\e[0m"
 VALIDATE(){
 if [ $1 -ne 0 ]
 then 
-     echo " $2 ... $R Failure $N"
+     echo -e " $2 ... $R Failure $N"
      exit 1
 else
-     echo " $2 ... $G Success $N"
+     echo -e " $2 ... $G Success $N"
 fi
 } 
 
 USERID=$(id -u) # First to get the user id
-
 if [ $USERID -ne 0 ]  #-ne means not equal to 
 then 
     echo "ERROR:: Please run this script with root access"
@@ -31,11 +30,8 @@ fi
 
 #it is our responsibility again to check installation is success or not
 yum install mysql -y &>>$LOGFILE
-
 VALIDATE $? "Installing MySQL"
-
 yum install postfix -y &>>$LOGFILE
-
 VALIDATE $? "Installing postfix"
 
 
