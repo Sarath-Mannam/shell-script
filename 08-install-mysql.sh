@@ -10,13 +10,14 @@ then
     exit 1 # if it finds exit other than 0, then it will come out of flow immediately 
 fi
 
+#it is our responsibility again to check installation is success or not
 yum install mysqllll -y
 
 if [ $? -ne 0]
 then 
-     echo "Installation of mysql got corrupted"
+     echo "Installation of mysql is error"
      exit 1
-else 
+else
      echo "Installation of mysql is success"
 fi
 
