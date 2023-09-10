@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# our program goal is to install mysql
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+#log file will be created inside tmp folder on script name with which date it got executed  
+LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log 
+# Now i want to append all the output to this log file 
 
-USERID=$(id -u) # First to get the user id
 #This function should validate the previous command and inform user it is success or failure
 VALIDATE(){
 if [ $1 -ne 0 ]
@@ -14,6 +17,8 @@ else
 fi
 } 
 
+USERID=$(id -u) # First to get the user id
+
 if [ $USERID -ne 0 ]  #-ne means not equal to 
 then 
     echo "ERROR:: Please run this script with root access"
@@ -21,11 +26,11 @@ then
 fi
 
 #it is our responsibility again to check installation is success or not
-yum install mysql -y
+yum install mysql -y &>>$LOGFILE
 
 VALIDATE $? "Installing MySQL"
 
-yum install postfix -y
+yum install postfix -y &>>$LOGFILE
 
 VALIDATE $? "Installing postfix"
 
