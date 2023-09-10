@@ -14,7 +14,7 @@ yum install mysqllll -y
 
 if [ $? -ne 0]
 then 
-     echo "Installation of mysql is failed"
+     echo "Installation of mysql got corrupted"
      exit 1
 else 
      echo "Installation of mysql is success"
