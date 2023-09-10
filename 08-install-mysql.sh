@@ -10,7 +10,7 @@ then
     exit 1 # if it finds exit other than 0, then it will come out of flow immediately 
 fi
 
-yum install mysqll -y
+yum install mysqllll -y
 
 if [ $? -ne 0]
 then 
