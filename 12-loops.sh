@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERID=$(id-u)
+USERID=$(id -u)
 R="\e[31m"
 N="\e[0m"
 
