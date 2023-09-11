@@ -1,5 +1,4 @@
 #!/bin/bash
-
 DATE=$(date +%F)
 LOGSDIR=/home/centos/shellscript-logs
 SCRIPT_NAME=$0
@@ -36,14 +35,11 @@ do
         echo "$i is not installed, let's install it" 
         #installation of package gives lot of log files, so we need to redirect to a log file
         yum install $i -y &>>$LOGFILE
-        validate $? "$i"
+        VALIDATE $? "$i"
     else 
         echo -e "$Y $i is already installed $N"
     fi    
 done
 
-#improvements implement log files, colors, validations through functions.
-#your script should check package is already installed or not, if already installed print with yellow color.
-#if installed just print package is already installed, it should not run install command again
 
 
