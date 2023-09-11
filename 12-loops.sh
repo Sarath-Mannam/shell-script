@@ -31,7 +31,7 @@ for i in $@
 do
    #before doing installation let us check whether it is installed or not 
    yum list installed $i &>>$LOGFILE #redirecting log lines into a log file 
-   if [ $? ne 0 ]
+   if [ $? -ne 0 ]
    then 
         echo "$i is not installed, let's install it" 
         #installation of package gives lot of log files, so we need to redirect to a log file
