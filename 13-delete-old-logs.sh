@@ -17,3 +17,4 @@ do
     rm -rf $line
 done < $FILES_TO_DELETE  # < less than symbol indicates input of file FILES_TO_DELETE
 # > Symbol is mening for output
+
