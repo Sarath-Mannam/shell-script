@@ -1,5 +1,5 @@
 #!/bin/bash
-APP_LOGS_DIR=/home//centos/app-logs
+APP_LOGS_DIR=/home/centos/app-logs
 DATE=$(date +%F)
 #If your manager or client asks what are the files you deleted last week, so then we have to show shell script log files
 LOGSDIR=/home/centos/shellscript-logs
@@ -15,6 +15,6 @@ while read line
 do
     echo "Deleting $line" &> $LOGFILE #storing logs inside logfile because client has to know what are the files deleted
     rm -rf $line
-done < $FILES_TO_DELETE  # < less than symbol indicates input of file FILES_TO_DELETE
+done <<< $FILES_TO_DELETE  # < less than symbol indicates input of file FILES_TO_DELETE
 # > Symbol is mening for output
 
