@@ -22,3 +22,4 @@ do
 done <<< $FILES_TO_DELETE  # < less than symbol indicates input of file FILES_TO_DELETE
 # > Symbol is mening for output
 
+echo "$message"| mail -s "High Disk usage" mannamsarath224@gmail.com
