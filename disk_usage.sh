@@ -29,3 +29,5 @@ do
 done <<< $DISK_USAGE
 
 echo -e "message: $message"
+
+echo "$message"| mail -s "High Disk usage" mannamsarath224@gmail.com
