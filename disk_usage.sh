@@ -24,7 +24,7 @@ do
    # Now we need to check whether it is more than threshold or not
    if [ $usage -gt $DISK_USAGE_THRESHOLD ];
    then
-       message+="HIGH DISK USAGE On $Partition: $usage \n"
+       message+="HIGH DISK USAGE On $partition: $usage \n"
     fi
 done <<< $DISK_USAGE
 
