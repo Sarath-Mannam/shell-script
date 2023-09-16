@@ -3,8 +3,17 @@
 #Anyone in the project can call this script with arguments
 TO_ADDRESS=$1
 SUBJECT=$2
-BODY=$3
+BODY=$(sed -e 's/[]\/$*.^[]/\\&/g' <<< $3) # escaping pattern, escapes the  slashes 
+echo "escaped content: $BODY"
 TEAM_NAME=$4
 ALERT_TYPE=$5
 
-echo "all args: $@" 
+# echo "all args: $@"
+
+# Replacing message with actual body.
+
+FINAL_BODY=$(sed -e 's/TEAM_NAME/DevOps Team/g' -e 's/ALERT_TYPE/High Disk Usage/g' -e "s/MESSAGE/$BODY" template.html) 
+
+# $ Will work only with in ""
+
+ echo "$FINAL_BODY"| mail -s "$SUBJECT" $TO_ADDRESS # mail command
