@@ -30,4 +30,4 @@ echo -e "message: $message"
 
 #How to call other scripts from your current script by giving "sh" and "script name"
 sh mail.sh mannamsarath224@gmail.com "High Disk Usage" "$message" "DevOps Team" "High Disk Usage"
-# When you are having spaces in the text better to use "" |''
+# When you are having spaces in the text better to use ""|''
