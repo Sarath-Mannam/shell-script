@@ -15,5 +15,5 @@ ALERT_TYPE=$5
 FINAL_BODY=$(sed -e "s/TEAM_NAME/$TEAM_NAME/g" -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s/MESSAGE/$BODY/g" template.html) 
 
 # $ Will work only with in ""
-
- echo "$FINAL_BODY"| mail -s "$SUBJECT" "$TO_ADDRESS" # mail command
+# mail command
+ echo "$FINAL_BODY"| mail -s "$(echo -e "$SUBJECT\nContent-Type: text/html")" "$TO_ADDRESS" 
