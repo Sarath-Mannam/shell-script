@@ -1,15 +1,11 @@
 #!/bin/bash
-
 LOGFILE_DIRECTORY=/tmp
 DATE=$(date +%F:%H:%M:%S)
 SCRIPT_NAME=$0
 LOGFILE=$LOGFILE_DIRECTORY/$SCRIPT_NAME-$DATE.log
 message=""
 
-R="\e[31m"
-G="\e[32m"
-N="\e[0m"
-Y="\e[33m"
+R="\e[31m" G="\e[32m" N="\e[0m" Y="\e[33m"
 
 DISK_USAGE=$(df -hT | grep -vE 'tmpfs|Filesystem')
 DISK_USAGE_THRESHOLD=1
@@ -30,4 +26,8 @@ done <<< $DISK_USAGE
 
 echo -e "message: $message"
 
-echo "$message"| mail -s "High Disk usage" mannamsarath224@gmail.com
+#echo "$message"| mail -s "High Disk usage" mannamsarath224@gmail.com
+
+#How to call other scripts from your current script by giving "sh" and "script name"
+sh mail.sh mannamsarath224@gmail.com "High Disk Usage" "$message" "DevOps Team" "High Disk Usage"
+# When you are having spaces in the text better to use "" |''
