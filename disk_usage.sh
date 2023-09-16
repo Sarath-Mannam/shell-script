@@ -29,5 +29,5 @@ echo -e "message: $message"
 #echo "$message"| mail -s "High Disk usage" mannamsarath224@gmail.com
 
 #How to call other scripts from your current script by giving "sh" and "script name"
-sh mail.sh mannamsarath224@gmail.com "High Disk Usage" "$message" "DevOps Team" "High Disk Usage"
+sh mail.sh iastharas87@gmail.com "High Disk Usage" "$message" "DevOps Team" "High Disk Usage"
 # When you are having spaces in the text better to use ""|''
